@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "joke": "Jon Skeet is immutable. If something's going to change, it's going to have to be the rest of the universe."
+  },
+  {
+    "id": 2,
+    "joke": "Anonymous methods and anonymous types are really all called Jon Skeet. They just don't like to boast."
+  },
+  {
+    "id": 3,
+    "joke": "Jon Skeet's code doesn't follow a coding convention. It is the coding convention."
+  },
+  {
+    "id": 4,
+    "joke": "Jon Skeet doesn't have performance bottlenecks. He just makes the universe wait its turn."
+  },
+  {
+    "id": 5,
+    "joke": "Jon Skeet is the only person who has ranked higher than Jon Skeet in the SO all-time rep league."
+  },
+  {
+    "id": 6,
+    "joke": "Users don't mark Jon Skeet's answers as accepted. The universe accepts them out of a sense of truth and justice."
+  },
+  { "id": 7, "joke": "Jon Skeet can divide by zero. Twice." }
+]

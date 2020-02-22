@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Jokes from "./components/jokes";
 
-function App() {
+const App: React.FC = () => {
+  const [displayJokes, setDisplayJokes] = React.useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+    <div>
+      <div>
+        <button onClick={() => setDisplayJokes(!displayJokes)}>
+          {displayJokes ? "Hide jokes" : "Display jokes"}
+        </button>
+      </div>
+
+      {displayJokes && <Jokes url="/api/jon-skeet.json" />}
+
+      <div style={{ display: "none" }}>
         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="http://timeslicing-unstable-demo.surge.sh/"
+          target="async-demo"
         >
-          Learn React
+          Async demo
         </a>
-      </header>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
