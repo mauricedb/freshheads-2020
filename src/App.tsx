@@ -1,6 +1,9 @@
-import React from "react";
+import React, { Suspense, ErrorInfo } from "react";
 import "./App.css";
 import Jokes from "./components/jokes";
+import Loading from "./components/loading";
+import ErrorBoundary from "./components/error-boundary";
+import ErrorDisplay from "./components/error-display";
 
 const App: React.FC = () => {
   const [displayJokes, setDisplayJokes] = React.useState(false);
@@ -13,7 +16,15 @@ const App: React.FC = () => {
         </button>
       </div>
 
-      {displayJokes && <Jokes url="/api/jon-skeet.json" />}
+      <ErrorBoundary
+        fallback={(error: Error, errorInfo: ErrorInfo | null) => (
+          <ErrorDisplay error={error} errorInfo={errorInfo} />
+        )}
+      >
+        <Suspense fallback={<Loading />}>
+          {displayJokes && <Jokes url="/api/jon-skeet.json" />}
+        </Suspense>
+      </ErrorBoundary>
 
       <div style={{ display: "none" }}>
         <a

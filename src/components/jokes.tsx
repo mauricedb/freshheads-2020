@@ -2,6 +2,7 @@ import React from "react";
 import Loading from "./loading";
 import useFetch from "./use-fetch";
 import ErrorDisplay from "./error-display";
+import createResource from "./create-resource";
 
 type Joke = { id: number; joke: string };
 type Props = { url: string };
@@ -70,16 +71,25 @@ type State = { loading: boolean; jokes: Joke[]; error: any };
 //   );
 // };
 
+const fetchResource = createResource(async (url: string) => {
+  const rsp = await fetch(url);
+  const data = await rsp.json();
+
+  return data;
+});
+
 const Jokes: React.FC<Props> = ({ url }) => {
-  const { loading, data: jokes, error } = useFetch<Joke[]>(url);
+  const jokes = fetchResource.read(url);
 
-  if (error) {
-    return <ErrorDisplay error={error} />;
-  }
+  // const { loading, data: jokes, error } = useFetch<Joke[]>(url);
 
-  if (loading || !jokes) {
-    return <Loading />;
-  }
+  // if (error) {
+  //   return <ErrorDisplay error={error} />;
+  // }
+
+  // if (loading || !jokes) {
+  //   return <Loading />;
+  // }
 
   return (
     <div>
