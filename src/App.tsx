@@ -16,13 +16,9 @@ const App: React.FC = () => {
         </button>
       </div>
 
-      <ErrorBoundary
-        fallback={(error: Error, errorInfo: ErrorInfo | null) => (
-          <ErrorDisplay error={error} errorInfo={errorInfo} />
-        )}
-      >
+      <ErrorBoundary fallback={<ErrorDisplay />}>
         <Suspense fallback={<Loading />}>
-          {displayJokes && <Jokes url="/api/jon-skeet.json" />}
+          {displayJokes && <Jokes url="/api/jon-skeet.json2" />}
         </Suspense>
       </ErrorBoundary>
 

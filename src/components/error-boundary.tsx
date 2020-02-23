@@ -1,8 +1,8 @@
-import React, { Component, ReactNode, ComponentType, ErrorInfo } from "react";
+import React, { Component, ReactNode, ErrorInfo, ReactElement } from "react";
 
 type Props = {
   children: ReactNode;
-  fallback: (error: Error, errorInfo: ErrorInfo | null) => JSX.Element;
+  fallback: ReactElement;
 };
 
 type State = {
@@ -24,8 +24,9 @@ class ErrorBoundary extends Component<Props, State> {
   render() {
     const { error, errorInfo } = this.state;
     const { children, fallback } = this.props;
+
     if (error) {
-      return fallback(error, errorInfo);
+      return React.cloneElement(fallback, { error, errorInfo });
     }
 
     return children;
