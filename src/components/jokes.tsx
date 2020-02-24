@@ -81,16 +81,6 @@ const fetchResource = createResource(async (url: string) => {
 const Jokes: React.FC<Props> = ({ url }) => {
   const jokes = fetchResource.read(url);
 
-  // const { loading, data: jokes, error } = useFetch<Joke[]>(url);
-
-  // if (error) {
-  //   return <ErrorDisplay error={error} />;
-  // }
-
-  // if (loading || !jokes) {
-  //   return <Loading />;
-  // }
-
   return (
     <div>
       <h2>Jon Skeet Jokes</h2>
