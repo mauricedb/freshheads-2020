@@ -6,7 +6,7 @@ type Props = {
   errorInfo?: ErrorInfo | null;
 };
 
-const ErrorDisplay: React.FC<Props> = ({ error, errorInfo }) => {
+export const ErrorDisplay: React.FC<Props> = ({ error, errorInfo }) => {
   return (
     <div style={{ color: "red" }}>
       <h1>Oops, an error occurred</h1>
@@ -19,5 +19,3 @@ const ErrorDisplay: React.FC<Props> = ({ error, errorInfo }) => {
     </div>
   );
 };
-
-export default ErrorDisplay;
